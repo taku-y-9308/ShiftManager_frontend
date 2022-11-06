@@ -2,19 +2,57 @@
     import TimeLine from '../components/TimeLine.vue'
 
     const columns = [
-        { type: 'string', id: 'President' },
-        { type: 'date', id: 'Start' },
-        { type: 'date', id: 'End' },
+        { type: 'string', id: 'name' },
+        { type: 'string', id: 'shift_id' },
+        { type: 'string', id: 'style' ,role: 'style' },
+        { type: 'date', id: 'start' },
+        { type: 'date', id: 'end' }
+
     ];
 
-    const rows = [
-        ['Washington', new Date(1789, 3, 30), new Date(1797, 2, 4)],
-        ['Adams', new Date(1797, 2, 4), new Date(1801, 2, 4)],
-        ['Jefferson', new Date(1801, 2, 4), new Date(1809, 2, 4)],
-    ];
+    const response_data = [
+        {
+            "shift_id": 1453,
+            "name": "中村百花",
+            "date": "2022-11-06",
+            "style": "#0000ff",
+            "start": "2022-11-05T21:00:00Z",
+            "end": "2022-11-06T03:00:00Z"
+        },
+        {
+            "shift_id": 1328,
+            "name": "堀田風歌",
+            "date": "2022-11-06",
+            "style": "#0000ff",
+            "start": "2022-11-06T08:00:00Z",
+            "end": "2022-11-06T12:00:00Z"
+        },
+        {
+            "shift_id": 1212,
+            "name": "小川律哉",
+            "date": "2022-11-06",
+            "style": "#ff0000",
+            "start": "2022-11-06T00:00:00Z",
+            "end": "2022-11-06T06:00:00Z"
+        }
+    ]
+
+    let rows = [];
+
+    for(let i=0;i<response_data.length;i++){
+        const name = response_data[i]['name']
+        const shift_id = String(response_data[i]['shift_id'])
+        const style = response_data[i]['style']
+        const start = response_data[i]['start']
+        const end = response_data[i]['end']
+        rows.push(
+            [name,shift_id,style,new Date(start),new Date(end)]
+        )
+    }
+
+ 
 
     const data = [columns, ...rows];
-    console.log(data)
 </script>
 
 <template>
