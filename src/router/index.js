@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import SubmitShift from '../views/SubmitShift.vue'
+import ShiftTimeLineView from '../views/ShiftTimeLineView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/submit-shift',
       name: 'submit-shift',
       component: SubmitShift
+    },
+    {
+      path: '/edit-shift',
+      name: 'edit-shift',
+      component: ShiftTimeLineView
     }
   ]
 })

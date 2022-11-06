@@ -17,7 +17,7 @@
                 <RouterLink class="nav-link" to="/submit-shift">シフト提出</RouterLink>
                 </li>  
                 <li class="nav-item">
-                <a class="nav-link" href="{%url 'ShiftManagementApp:edit-shift'%}">シフト編集</a>
+                <RouterLink class="nav-link" to="/edit-shift">シフト編集</RouterLink>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="{%url 'ShiftManagementApp:contact'%}">お問い合わせ</a>
