@@ -20,7 +20,7 @@
                 <RouterLink class="nav-link" to="/edit-shift">シフト編集</RouterLink>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="{%url 'ShiftManagementApp:contact'%}">お問い合わせ</a>
+                <RouterLink class="nav-link" to="/contact">お問い合わせ</RouterLink>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{%url 'ShiftManagementApp:line'%}">LINE連携</a>
