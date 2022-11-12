@@ -1,0 +1,26 @@
+<script setup>
+
+</script>
+
+<template>
+
+    <h5 class="text-center">LINEアカウント連携をする場合は下のボタンを押してください</h5> 
+    <button type="button" class="btn btn-success btn-lg mt-5 d-block mx-auto" onclick="location.href='https://line.me/R/ti/p/%40012ztsml'">LINE連携</button>
+    <div class="mt-5">
+        <h6>LINEアカウント連携を行うと以下の事ができるようになります。</h6>
+    </div>
+    <div class="list-group mt-3">
+        <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">シフト通知機能</h5>
+        </div>
+        <p class="mb-1">翌日にシフトに入っている場合、毎日16時に通知します</p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">シフト締め切り通知</h5>
+            </div>
+            <p class="mb-1">シフト提出締切日前日の18時にLINE通知します</p>
+        </a>
+    </div>
+</template>

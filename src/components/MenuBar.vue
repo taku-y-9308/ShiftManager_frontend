@@ -23,7 +23,7 @@
                 <RouterLink class="nav-link" to="/contact">お問い合わせ</RouterLink>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{%url 'ShiftManagementApp:line'%}">LINE連携</a>
+                <RouterLink class="nav-link" to="/line">LINE連携</RouterLink>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">管理者メニュー</a>

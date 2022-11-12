@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import SubmitShift from '../views/SubmitShift.vue'
 import ShiftTimeLineView from '../views/ShiftTimeLineView.vue'
 import ContactView from '../views/Contact.vue'
+import AccountLinkageView from '../views/AccountLinkage.vue'
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
     path: '/contact',
     name: 'contact',
     component: ContactView
+  },
+  {
+    path: '/line',
+    name: '/line',
+    component: AccountLinkageView
   }
 ]
 
