@@ -18,7 +18,8 @@
     "fullcalendar": "^5.11.3",
     "vue": "^3.2.41",
     "vue-google-charts": "^1.1.0",
-    "vue-router": "^4.1.5"
+    "vue-router": "^4.1.5",
+    "vuetify": "^3.0.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.2",
