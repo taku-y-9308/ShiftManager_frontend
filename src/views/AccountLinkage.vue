@@ -3,7 +3,7 @@
 </script>
 
 <template>
-
+<MenuBar />
     <h5 class="text-center">LINEアカウント連携をする場合は下のボタンを押してください</h5> 
     <button type="button" class="btn btn-success btn-lg mt-5 d-block mx-auto" onclick="location.href='https://line.me/R/ti/p/%40012ztsml'">LINE連携</button>
     <div class="mt-5">

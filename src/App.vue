@@ -5,10 +5,11 @@ import MenuBar from './components/MenuBar.vue'
 </script>
 
 <template>
-   <MenuBar />
-    <main role="main" class="container">
-      <RouterView />
-    </main>
+  
+  <main role="main" class="container">
+    <RouterView />
+  </main>
+
 </template>
 
 <style>

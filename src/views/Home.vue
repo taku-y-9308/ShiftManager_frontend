@@ -5,6 +5,7 @@
     
 </script>
 <template>
+    <MenuBar />
     <LoginName username="takumi" />
     <InformationBar />
     <FullCalendar />

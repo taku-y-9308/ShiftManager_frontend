@@ -3,6 +3,7 @@
 </script>
 
 <template>
+    <MenuBar />
     <form>
         <div class="form-group">
             <label class="control-label">お問い合わせタイトル</label>

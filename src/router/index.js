@@ -4,6 +4,7 @@ import SubmitShift from '../views/SubmitShift.vue'
 import ShiftTimeLineView from '../views/ShiftTimeLineView.vue'
 import ContactView from '../views/Contact.vue'
 import AccountLinkageView from '../views/AccountLinkage.vue'
+import Login from '../views/Login.vue'
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
     path: '/line',
     name: '/line',
     component: AccountLinkageView
+  },
+  {
+    path:'/login',
+    name:'login',
+    component:Login
   }
 ]
 
