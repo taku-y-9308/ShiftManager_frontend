@@ -5,7 +5,7 @@ import ShiftTimeLineView from '../views/ShiftTimeLineView.vue'
 import ContactView from '../views/Contact.vue'
 import AccountLinkageView from '../views/AccountLinkage.vue'
 import Login from '../views/Login.vue'
-import isAuthenticated from './CheckAuthentication'
+import { CheckAuthenticated } from './CheckAuthentication'
 
 const routes = [
   {
@@ -57,16 +57,23 @@ const router = createRouter({
   routes: routes
 })
 
-router.beforeEach((to,from,next) => {
-  if(to.matched.some(record => record.meta.requiresAuth)){
-    if(isAuthenticated()){
+
+
+router.beforeEach(async function(to,from,next){
+  if(to.matched.some(record => record.meta.AuthenticationRequired)){
+    const isAuthenticated = await CheckAuthenticated()
+    console.log(isAuthenticated)
+    if(isAuthenticated){
+      console.log('AuthenticatedUser')
       next()
-    }else(
+    }else{
+      console.log('Un-AuthenticatedUser')
       next('/login')
-    )
-  }else(
+    }
+  }else{
     next()
-  )
+  }
+  
 })
 
 export default router

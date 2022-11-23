@@ -1,12 +1,19 @@
 import axios from "axios";
-function isAuthenticated(){
+
+export async function CheckAuthenticated(){
+    let status
     const params = { withCredentials: true }
-    axios.get('http://127.0.0.1:8000/dj-rest-auth/user/',params)
-    .then((res) => {
-        return true
+    await axios.get('http://127.0.0.1:8000/dj-rest-auth/user/',params)
+    .then((res)=>{
+      status = 'OK'
     })
-    .catch((res) => {
-        return false
+    .catch((res)=>{
+      status = 'NG'
     })
-}
-export default isAuthenticated
+    console.log('end')
+    if(status == 'OK'){
+      return true
+    }else{
+      return false
+    }
+  }
