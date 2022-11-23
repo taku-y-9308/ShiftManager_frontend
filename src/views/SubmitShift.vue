@@ -1,5 +1,6 @@
 <script setup>
 import FullCalendar from '../components/FullCalendar.vue';
+import MenuBar from '../components/MenuBar.vue';
 </script>
 <template>
     <MenuBar />

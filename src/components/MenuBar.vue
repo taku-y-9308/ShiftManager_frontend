@@ -1,5 +1,24 @@
 <script setup>
     import { RouterLink } from 'vue-router'
+    import { useRouter } from 'vue-router'
+    import axios from 'axios'
+    
+    const router = useRouter()  
+    function logout() {
+                  
+        console.log(router)
+        const params = { withCredentials: true }
+        axios.post('http://127.0.0.1:8000/dj-rest-auth/logout/',{},params)
+        .then((res) => {
+            router.push({name:'login'})
+            console.log(res)
+
+        })
+        .catch((res) => {
+            console.log(res)
+        })
+    }
+
 </script>
 
 <template>
@@ -35,7 +54,7 @@
                 </div>
             </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{%url 'ShiftManagementApp:Logout' %}">ログアウト</a>
+                    <RouterLink class="nav-link" @click="logout" to="">ログアウト</RouterLink>>
                 </li>
             </ul>
         </div>

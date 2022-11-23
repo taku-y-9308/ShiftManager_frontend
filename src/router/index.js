@@ -5,48 +5,68 @@ import ShiftTimeLineView from '../views/ShiftTimeLineView.vue'
 import ContactView from '../views/Contact.vue'
 import AccountLinkageView from '../views/AccountLinkage.vue'
 import Login from '../views/Login.vue'
+import isAuthenticated from './CheckAuthentication'
 
 const routes = [
   {
     path: '/',
     name: 'root',
-    component: Home
+    component: Home,
+    meta: {AuthenticationRequired: true},
   },
   {
     path: '/home',
     name: 'home',
-    component: Home
+    component: Home,
+    meta: {AuthenticationRequired: true},
   },
   {
     path: '/submit-shift',
     name: 'submit-shift',
-    component: SubmitShift
+    component: SubmitShift,
+    meta: {AuthenticationRequired: true},
   },
   {
     path: '/edit-shift',
     name: 'edit-shift',
-    component: ShiftTimeLineView
+    component: ShiftTimeLineView,
+    meta: {AuthenticationRequired: true},
   },
   {
     path: '/contact',
     name: 'contact',
-    component: ContactView
+    component: ContactView,
+    meta: {AuthenticationRequired: true},
   },
   {
     path: '/line',
     name: '/line',
-    component: AccountLinkageView
+    component: AccountLinkageView,
+    meta: {AuthenticationRequired: true},
   },
   {
     path:'/login',
     name:'login',
-    component:Login
+    component:Login,
+    meta: {AuthenticationRequired: false},
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: routes
+})
+
+router.beforeEach((to,from,next) => {
+  if(to.matched.some(record => record.meta.requiresAuth)){
+    if(isAuthenticated()){
+      next()
+    }else(
+      next('/login')
+    )
+  }else(
+    next()
+  )
 })
 
 export default router

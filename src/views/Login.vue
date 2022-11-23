@@ -9,7 +9,16 @@ const router = useRouter()
 
 function login(){
 
-  
+  axios.interceptors.request.use(request => {
+    console.log('Starting Request: ', request)
+    return request
+  })
+
+  axios.interceptors.response.use(response => {
+    console.log('Response: ', response)
+    return response
+  })
+
   axios.post('http://127.0.0.1:8000/dj-rest-auth/login/',{
     email:email.value,
     password:password.value    
@@ -21,7 +30,6 @@ function login(){
     console.log(res);
   })
 }
-console.log(email,password)
 </script>
 <template>
     <v-card class="mx-auto px-6 py-8" max-width="350" align-content="center">
