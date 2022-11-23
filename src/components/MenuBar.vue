@@ -7,8 +7,7 @@
     function logout() {
                   
         console.log(router)
-        const params = { withCredentials: true }
-        axios.post('http://127.0.0.1:8000/dj-rest-auth/logout/',{},params)
+        axios.post('http://127.0.0.1:8000/dj-rest-auth/logout/',{})
         .then((res) => {
             router.push({name:'login'})
             console.log(res)
