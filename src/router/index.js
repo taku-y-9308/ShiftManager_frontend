@@ -62,7 +62,6 @@ const router = createRouter({
 router.beforeEach(async function(to,from,next){
   if(to.matched.some(record => record.meta.AuthenticationRequired)){
     const isAuthenticated = await CheckAuthenticated()
-    console.log(isAuthenticated)
     if(isAuthenticated){
       console.log('AuthenticatedUser')
       next()
