@@ -5,9 +5,11 @@
     
     const router = useRouter()  
     function logout() {
-                  
+        const  params = { withCredentials: true }
         console.log(router)
-        axios.post('http://127.0.0.1:8000/dj-rest-auth/logout/',{})
+        axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
+        axios.defaults.xsrfCookieName = "csrftoken"
+        axios.post('http://127.0.0.1:8000/dj-rest-auth/logout/',{},params)
         .then((res) => {
             router.push({name:'login'})
             console.log(res)
