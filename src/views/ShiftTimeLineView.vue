@@ -1,6 +1,5 @@
 <script setup>
     import TimeLine from '../components/TimeLine.vue'
-    import MenuBar from '../components/MenuBar.vue';
 
     const columns = [
         { type: 'string', id: 'name' },
@@ -57,7 +56,6 @@
 </script>
 
 <template>
-    <MenuBar />
     <div class="container">
         <div class="row">
             <div class="col-5">

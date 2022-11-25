@@ -1,8 +1,7 @@
 <script setup>
-import MenuBar from '../components/MenuBar.vue';
+
 </script>
 <template>
-  <MenuBar />
     <div class="card">
     <h3 class="card-header">一般設定</h3>
     <div class="card-body">

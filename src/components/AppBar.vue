@@ -1,8 +1,6 @@
 <script setup>
-import { RouterView } from 'vue-router'
 import { ref } from 'vue';
 const drawer = ref(false)
-
 </script>
 <template>
   <v-app>
@@ -34,10 +32,10 @@ const drawer = ref(false)
         density="compact"
         nav
       >
-        <v-list-item prepend-icon="mdi-view-dashboard" title="マイページ" value="home" to="home"></v-list-item>
-        <v-list-item prepend-icon="mdi-file-send" title="シフト送信" value="about" to="submit-shift"></v-list-item>
-        <v-list-item prepend-icon="mdi-clock-edit" title="シフト編集" to="/edit-shift"></v-list-item>
-        <v-list-item prepend-icon="mdi-account-question" title="お問い合わせ" to="/contact"></v-list-item>
+        <v-list-item prepend-icon="mdi-view-dashboard" title="マイページ" value="home"></v-list-item>
+        <v-list-item prepend-icon="mdi-file-send" title="シフト送信" value="about"></v-list-item>
+        <v-list-item prepend-icon="mdi-clock-edit" title="シフト編集" value=""></v-list-item>
+        <v-list-item prepend-icon="mdi-account-question" title="お問い合わせ"></v-list-item>
         <v-list-item prepend-icon="mdi-lightbulb-on-10" title="管理者メニュー"></v-list-item>
         <v-list-item prepend-icon="mdi-cog" title="設定"></v-list-item>
         <v-list-item prepend-icon="mdi-logout" title="ログアウト"></v-list-item>
@@ -46,7 +44,7 @@ const drawer = ref(false)
       </v-navigation-drawer>
 
       <v-main>
-        <RouterView />
+        content-area
       </v-main>
       <v-footer></v-footer>
 </v-app>
