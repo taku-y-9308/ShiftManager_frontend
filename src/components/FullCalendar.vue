@@ -1,13 +1,23 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, watch } from 'vue'
 import '@fullcalendar/core/vdom' // solves problem with Vite
 import FullCalendar from '@fullcalendar/vue3'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'
 
+let shifts = defineProps({
+    shifts:Array
+})
+let events = [];
+watch(()=>{shifts},()=>{
+    events.push(shifts)
+    console.log(events)
+},)
+
 const calendarOptions = reactive({
     plugins: [ dayGridPlugin, interactionPlugin ],
     initialView: 'dayGridMonth',
+    timeZone:'Asia/Tokyo',
     locale: 'ja',
     displayEventEnd :true,
     headerToolbar: {
@@ -31,7 +41,8 @@ const calendarOptions = reactive({
         minute: '2-digit',
         omitZeroMinute: true,
         meridiem: 'narrow'
-    }
+    },
+    events:shifts.shifts
 
 })
 
