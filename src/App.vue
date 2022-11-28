@@ -1,7 +1,26 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import { ref } from 'vue';
+import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+import axios from 'axios'
+
 const drawer = ref(false)
+const router = useRouter()  
+function logout() {
+    const  params = { withCredentials: true }
+    console.log(router)
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
+    axios.defaults.xsrfCookieName = "csrftoken"
+    axios.post('http://127.0.0.1:8000/dj-rest-auth/logout/',{},params)
+    .then((res) => {
+        router.push({name:'login'})
+        console.log(res)
+
+    })
+    .catch((res) => {
+        console.log(res)
+    })
+}
 
 </script>
 <template>
@@ -34,19 +53,21 @@ const drawer = ref(false)
         density="compact"
         nav
       >
-        <v-list-item prepend-icon="mdi-view-dashboard" title="マイページ" value="home" to="home"></v-list-item>
-        <v-list-item prepend-icon="mdi-file-send" title="シフト送信" value="about" to="submit-shift"></v-list-item>
+        <v-list-item prepend-icon="mdi-view-dashboard" title="マイページ" to="home"></v-list-item>
+        <v-list-item prepend-icon="mdi-file-send" title="シフト送信" to="submit-shift"></v-list-item>
         <v-list-item prepend-icon="mdi-clock-edit" title="シフト編集" to="/edit-shift"></v-list-item>
         <v-list-item prepend-icon="mdi-account-question" title="お問い合わせ" to="/contact"></v-list-item>
         <v-list-item prepend-icon="mdi-lightbulb-on-10" title="管理者メニュー"></v-list-item>
         <v-list-item prepend-icon="mdi-cog" title="設定"></v-list-item>
-        <v-list-item prepend-icon="mdi-logout" title="ログアウト"></v-list-item>
+        <v-list-item prepend-icon="mdi-logout" title="ログアウト" @click="logout()"></v-list-item>
       </v-list>
 
       </v-navigation-drawer>
 
       <v-main>
-        <RouterView />
+        <v-container>
+          <RouterView />
+        </v-container>
       </v-main>
       <v-footer></v-footer>
 </v-app>
