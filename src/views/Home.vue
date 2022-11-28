@@ -1,14 +1,8 @@
 <script setup>
-    /*
-    import InformationBar from '../components/InformationBar.vue'
-    import LoginName from '../components/LoginName.vue'
-    import MenuBar from '../components/MenuBar.vue'
-    */
     import FullCalendar from '../components/FullCalendar.vue'
     import axios from 'axios';
-    import { ref,reactive } from 'vue'
+    import { reactive } from 'vue'
 
-    const test = ['2022/11/28']
     const  params = { withCredentials: true }
     let shifts = reactive([]);
     let shift = {};
