@@ -1,10 +1,12 @@
 <script setup>
-    import { defineProps  } from 'vue';
+    import { toRefs} from 'vue';
     import { GChart } from 'vue-google-charts';
-    defineProps({
-        data:Object
+    const props = defineProps({
+        data:Array
     })
 
+    const { data } = toRefs(props)
+    
     const settings = {
         packages: ['timeline'],
     }
@@ -13,11 +15,12 @@
             showBarLabels:false//バーラベルをOFF、shift_idが入ってる
         }
     }
+    console.log(props.data)
 </script>
 <template>
     <GChart 
         type="Timeline"
-        :data="data"
+        :data="props.data"
         :settings="settings"
         :options="Options"
     />
