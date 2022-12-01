@@ -77,16 +77,30 @@ console.log(data)
 </script>
 
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-5">
-                <input v-model="search_date" type="date" class="form-control"  placeholder="タップして日付を入力" id="edit-date">
-            </div>
-            <button type="button" class="btn btn-primary mr-3" id="submit-date" @click="get_shifts">送信</button>
-            <button type="button" class="btn btn-secondary mr-3" id="create-newshift">新規シフト作成</button>
-            <button type="button" class="btn btn-danger" id="open_publish_shift_modal">シフト公開</button>
+        <div class="d-flex justify-space-around align-center flex-column flex-sm-row fill-height">
+            <v-row>
+
+                <v-col cols="12">
+                    <input v-model="search_date" type="date" class="form-control"  placeholder="タップして日付を入力" id="edit-date">
+                </v-col>
+            </v-row>
         </div>
-    </div>
+        <div class="d-flex justify-space-around align-center flex-column flex-sm-row fill-height mt-3">
+
+            <v-row>
+                <v-col cols="12" sm="4" md="2">
+                    <v-btn size="large" variant="flat" color="error" width="100%" @click="get_shifts">送信</v-btn>
+                </v-col>
+                <v-col cols="12" sm="4" md="2">
+                    <v-btn size="large" variant="flat" color="blue-grey" width="100%">新規シフト作成</v-btn>
+                </v-col>
+                <v-col cols="12" sm="4" md="2">
+                    <v-btn size="large" variant="flat" color="info" width="100%">シフト公開</v-btn>
+                </v-col> 
+        
+            </v-row>
+        </div>
+        
 
     <TimeLine 
         :data="data"
